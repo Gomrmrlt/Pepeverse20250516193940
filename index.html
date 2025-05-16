@@ -1,0 +1,860 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pepeverse ($PEPEV) - The Ultimate Meme-Fueled Multiverse</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap');
+        
+        :root {
+            --pepe-green: #58b02c;
+            --pepe-dark-green: #3c7a1e;
+            --pepe-yellow: #ffda44;
+            --pepe-pink: #ff6b8b;
+            --pepe-purple: #9c6eff;
+            --pepe-black: #111111;
+            --pepe-white: #f9f9f9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            background-color: var(--pepe-white);
+            color: var(--pepe-black);
+            overflow-x: hidden;
+            background-image: radial-gradient(var(--pepe-green) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Bangers', cursive;
+            letter-spacing: 2px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            font-family: 'Bangers', cursive;
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 3px solid var(--pepe-black);
+            background-color: var(--pepe-yellow);
+            color: var(--pepe-black);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 5px 5px 0 var(--pepe-black);
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 3px 3px 0 var(--pepe-black);
+            background-color: var(--pepe-pink);
+        }
+        
+        .btn:active {
+            transform: translate(5px, 5px);
+            box-shadow: none;
+        }
+        
+        .navbar {
+            background-color: var(--pepe-green);
+            padding: 15px 0;
+            border-bottom: 3px solid var(--pepe-black);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Bangers', cursive;
+            font-size: 2rem;
+            color: var(--pepe-white);
+            text-shadow: 2px 2px 0 var(--pepe-black);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            font-family: 'Bangers', cursive;
+            color: var(--pepe-white);
+            text-decoration: none;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 0 var(--pepe-black);
+            transition: all 0.2s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--pepe-yellow);
+            transform: scale(1.05);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--pepe-white);
+            cursor: pointer;
+        }
+        
+        .hero {
+            background-color: var(--pepe-green);
+            padding: 50px 0;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--pepe-black);
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-heading {
+            font-size: 3.5rem;
+            color: var(--pepe-yellow);
+            text-shadow: 3px 3px 0 var(--pepe-black);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        .hero-subheading {
+            font-size: 1.5rem;
+            color: var(--pepe-white);
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 0 var(--pepe-black);
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: var(--pepe-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--pepe-black);
+            transition: all 0.2s ease;
+            box-shadow: 3px 3px 0 var(--pepe-black);
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            background-color: var(--pepe-pink);
+        }
+        
+        .about {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--pepe-white) 0%, rgba(88, 176, 44, 0.2) 100%);
+            position: relative;
+        }
+        
+        .section-heading {
+            font-size: 3rem;
+            color: var(--pepe-green);
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 0 var(--pepe-black);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--pepe-black);
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            border: 3px solid var(--pepe-black);
+            box-shadow: 10px 10px 0 var(--pepe-black);
+        }
+        
+        .about-text {
+            flex: 2;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .section-container {
+            text-align: center;
+        }
+        
+        .tokenomics {
+            padding: 80px 0;
+            background-color: var(--pepe-green);
+            color: var(--pepe-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .token-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .token-card {
+            background-color: white;
+            color: var(--pepe-black);
+            padding: 30px;
+            border-radius: 20px;
+            border: 3px solid var(--pepe-black);
+            box-shadow: 8px 8px 0 var(--pepe-black);
+            width: 300px;
+            transition: all 0.3s ease;
+        }
+        
+        .token-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 12px 12px 0 var(--pepe-black);
+        }
+        
+        .token-card h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--pepe-green);
+        }
+        
+        .token-card p {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .roadmap {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--pepe-white) 0%, rgba(156, 110, 255, 0.2) 100%);
+            position: relative;
+        }
+        
+        .phase-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .phase-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            border: 3px solid var(--pepe-black);
+            box-shadow: 8px 8px 0 var(--pepe-black);
+            width: 280px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .phase-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 12px 12px 0 var(--pepe-black);
+        }
+        
+        .phase-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--pepe-purple);
+            position: relative;
+        }
+        
+        .phase-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -7px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--pepe-black);
+            border-radius: 1.5px;
+        }
+        
+        .phase-card ul {
+            list-style-type: none;
+            text-align: left;
+        }
+        
+        .phase-card li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+            line-height: 1.4;
+        }
+        
+        .phase-card li::before {
+            content: '🐸';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .how-to-buy {
+            padding: 80px 0;
+            background-color: var(--pepe-yellow);
+            color: var(--pepe-black);
+            position: relative;
+        }
+        
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .step-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            border: 3px solid var(--pepe-black);
+            box-shadow: 8px 8px 0 var(--pepe-black);
+            width: 280px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 12px 12px 0 var(--pepe-black);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--pepe-green);
+            color: white;
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 3px solid var(--pepe-black);
+        }
+        
+        .step-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--pepe-pink);
+        }
+        
+        .step-card p {
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+        
+        .buy-btn-container {
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .buy-btn {
+            font-size: 1.5rem;
+            padding: 15px 40px;
+            background-color: var(--pepe-pink);
+        }
+        
+        .footer {
+            background-color: var(--pepe-black);
+            color: var(--pepe-white);
+            padding: 50px 0 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--pepe-yellow);
+            text-decoration: none;
+            font-family: 'Bangers', cursive;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--pepe-pink);
+            transform: scale(1.05);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Decorative elements */
+        
+        .bubble {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            z-index: 1;
+            animation: float 10s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.1);
+            }
+        }
+        
+        /* Responsiveness */
+        
+        @media (max-width: 991px) {
+            .hero-content, .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-heading {
+                font-size: 2.8rem;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .token-card, .phase-card, .step-card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--pepe-green);
+                padding: 20px;
+                border-top: 2px solid var(--pepe-black);
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .hero-heading {
+                font-size: 2.5rem;
+            }
+            
+            .section-heading {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">
+                <svg width="35" height="35" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="#58b02c" stroke="#111" stroke-width="3" />
+                    <circle cx="35" cy="40" r="10" fill="white" stroke="#111" stroke-width="2" />
+                    <circle cx="65" cy="40" r="10" fill="white" stroke="#111" stroke-width="2" />
+                    <circle cx="35" cy="40" r="5" fill="#111" />
+                    <circle cx="65" cy="40" r="5" fill="#111" />
+                    <path d="M 30 65 Q 50 80 70 65" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" />
+                </svg>
+                <span>PEPEV</span>
+            </div>
+            
+            <button class="mobile-menu-btn">☰</button>
+            
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#tokenomics">Tokenomics</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#how-to-buy">Buy Now</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="bubble" style="width: 100px; height: 100px; top: 20%; left: 10%;"></div>
+        <div class="bubble" style="width: 150px; height: 150px; top: 50%; left: 80%;"></div>
+        <div class="bubble" style="width: 70px; height: 70px; top: 30%; left: 60%;"></div>
+        
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-heading">Pepeverse: Where Frogs Rule the Multiverse!</h1>
+                <p class="hero-subheading">The ultimate meme-fueled multiverse token where frogs reign supreme. Powered by community vibes and dank memes, $PEPEV is building a playful yet rewarding ecosystem for collectors, creators, and degens alike.</p>
+                <a href="https://gofundmeme.io/campaigns/3nA1o9VnEVgrD7UL3pCRoYmP9xwX5dDZZzT2Wam3GhZc" class="btn">Buy $PEPEV</a>
+                
+                <div class="social-icons">
+                    <a href="https://twitter.com/nueltechie" aria-label="Twitter">
+                        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://t.me/nuelyoungtek" aria-label="Telegram">
+                        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.5 5.5L2.5 11.5 9.5 13.5 11.5 20.5 21.5 5.5z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Discord">
+                        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 9C18 9 16.5 7.5 12 7.5C7.5 7.5 6 9 6 9C3.6 14.4 3.6 19.8 6 19.8C8.4 19.8 9.9 18.3 12 18.3C14.1 18.3 15.6 19.8 18 19.8C20.4 19.8 20.4 14.4 18 9Z"></path>
+                            <path d="M8.5 14C9.32843 14 10 13.3284 10 12.5C10 11.6716 9.32843 11 8.5 11C7.67157 11 7 11.6716 7 12.5C7 13.3284 7.67157 14 8.5 14Z"></path>
+                            <path d="M15.5 14C16.3284 14 17 13.3284 17 12.5C17 11.6716 16.3284 11 15.5 11C14.6716 11 14 11.6716 14 12.5C14 13.3284 14.6716 14 15.5 14Z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <svg width="300" height="300" viewBox="0 0 300 300">
+                    <circle cx="150" cy="150" r="145" fill="#58b02c" stroke="#111" stroke-width="6" />
+                    <circle cx="100" cy="120" r="35" fill="white" stroke="#111" stroke-width="4" />
+                    <circle cx="200" cy="120" r="35" fill="white" stroke="#111" stroke-width="4" />
+                    <ellipse cx="100" cy="120" rx="20" ry="25" fill="#111" />
+                    <ellipse cx="200" cy="120" rx="20" ry="25" fill="#111" />
+                    <circle cx="105" cy="110" r="7" fill="white" />
+                    <circle cx="205" cy="110" r="7" fill="white" />
+                    <path d="M 90 200 Q 150 240 210 200" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round" />
+                    <path d="M 75 70 Q 90 40 115 55" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" />
+                    <path d="M 225 70 Q 210 40 185 55" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" />
+                    
+                    <!-- Crown -->
+                    <path d="M110,70 L190,70 L180,40 L150,60 L120,40 Z" fill="#ffda44" stroke="#111" stroke-width="4" />
+                    
+                    <!-- Multiverse portals in the background -->
+                    <circle cx="50" cy="240" r="25" fill="#9c6eff" stroke="#111" stroke-width="3" />
+                    <circle cx="250" cy="240" r="25" fill="#ff6b8b" stroke="#111" stroke-width="3" />
+                    
+                    <!-- PEPEV text -->
+                    <text x="150" y="270" font-family="Bangers, cursive" font-size="24" fill="#111" text-anchor="middle" stroke="#fff" stroke-width="1">$PEPEV</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <div class="container section-container">
+            <h2 class="section-heading">About Pepeverse</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to the Pepeverse, the ultimate meme-fueled multiverse where frogs are the undisputed rulers of all dimensions! $PEPEV isn't just another meme token - it's a movement, a vibe, a whole new world of possibilities!</p>
+                    <br>
+                    <p>Built by meme lovers for meme enjoyers, Pepeverse combines the internet's favorite amphibian with a genuinely innovative ecosystem. Our community-driven approach means your voice matters, whether you're creating hilarious Pepe content, participating in our DAO, or just vibing with fellow frog enthusiasts.</p>
+                    <br>
+                    <p>From our meme generator tools to our upcoming NFT collections and metaverse experiences, Pepeverse is creating something truly special - a place where creativity is rewarded and memes have real value. Hop into the Pepeverse today!</p>
+                </div>
+                
+                <div class="about-image">
+                    <svg width="200" height="200" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="95" fill="#58b02c" stroke="#111" stroke-width="5" />
+                        
+                        <!-- Portal/multiverse effect -->
+                        <circle cx="100" cy="100" r="70" fill="none" stroke="#ffda44" stroke-width="4" stroke-dasharray="5,5" />
+                        <circle cx="100" cy="100" r="55" fill="none" stroke="#ff6b8b" stroke-width="4" stroke-dasharray="10,5" />
+                        <circle cx="100" cy="100" r="40" fill="none" stroke="#9c6eff" stroke-width="4" stroke-dasharray="2,3" />
+                        
+                        <!-- Pepe face -->
+                        <circle cx="75" cy="80" r="12" fill="white" stroke="#111" stroke-width="3" />
+                        <circle cx="125" cy="80" r="12" fill="white" stroke="#111" stroke-width="3" />
+                        <circle cx="75" cy="80" r="6" fill="#111" />
+                        <circle cx="125" cy="80" r="6" fill="#111" />
+                        <path d="M 70 120 Q 100 140 130 120" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="tokenomics" class="tokenomics">
+        <div class="bubble" style="width: 80px; height: 80px; top: 10%; right: 10%;"></div>
+        <div class="bubble" style="width: 120px; height: 120px; bottom: 20%; left: 5%;"></div>
+        
+        <div class="container section-container">
+            <h2 class="section-heading" style="color: var(--pepe-yellow);">Tokenomics</h2>
+            
+            <div class="token-info">
+                <div class="token-card">
+                    <h3>Total Supply</h3>
+                    <p>1,000,000,000</p>
+                </div>
+                
+                <div class="token-card">
+                    <h3>Token Symbol</h3>
+                    <p>$PEPEV</p>
+                </div>
+                
+                <div class="token-card">
+                    <h3>Network</h3>
+                    <p>Solana</p>
+                </div>
+            </div>
+            
+            <div class="token-address" style="background-color: white; display: inline-block; padding: 15px 30px; border-radius: 15px; border: 3px solid var(--pepe-black); margin-bottom: 40px;">
+                <h3 style="margin-bottom: 10px; color: var(--pepe-green);">Token Address</h3>
+                <p style="font-family: monospace; word-break: break-all; font-size: 0.9rem;">3nA1o9VnEVgrD7UL3pCRoYmP9xwX5dDZZzT2Wam3GhZc</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="roadmap" class="roadmap">
+        <div class="container section-container">
+            <h2 class="section-heading">Roadmap</h2>
+            
+            <div class="phase-cards">
+                <div class="phase-card">
+                    <h3>Phase 1: Genesis Frog</h3>
+                    <ul>
+                        <li>Launch token on Solana with fair community distribution</li>
+                        <li>Pepe meme contest (winner gets NFT + $PEPEV)</li>
+                        <li>Airdrop to OG frog holders</li>
+                        <li>Meme generator tool released</li>
+                    </ul>
+                </div>
+                
+                <div class="phase-card">
+                    <h3>Phase 2: Frognomics</h3>
+                    <ul>
+                        <li>PepeSwap integration</li>
+                        <li>Stake-to-earn with meme missions</li>
+                        <li>Pepeverse Explorer Dapp</li>
+                        <li>DAO setup for community-driven governance</li>
+                    </ul>
+                </div>
+                
+                <div class="phase-card">
+                    <h3>Phase 3: Interdimensional Leap</h3>
+                    <ul>
+                        <li>Pepe-themed NFT mint & marketplace</li>
+                        <li>Pepeverse mobile mini game</li>
+                        <li>Frogmerch drops (hoodies, hats, stickers)</li>
+                        <li>Listings on major DEXs & CoinMarketCap</li>
+                    </ul>
+                </div>
+                
+                <div class="phase-card">
+                    <h3>Phase 4: Frogtopia</h3>
+                    <ul>
+                        <li>Launch Pepeverse Metaverse space</li>
+                        <li>Meme museum powered by community submissions</li>
+                        <li>Seasonal Pepequests with SOL + NFT rewards</li>
+                        <li>Real-world meme festival with NFT ticketing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="how-to-buy" class="how-to-buy">
+        <div class="bubble" style="width: 100px; height: 100px; top: 30%; left: 5%;"></div>
+        <div class="bubble" style="width: 150px; height: 150px; bottom: 10%; right: 10%;"></div>
+        
+        <div class="container section-container">
+            <h2 class="section-heading" style="color: var(--pepe-black);">How to Buy $PEPEV</h2>
+            
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Get a SOL Wallet</h3>
+                    <p>Download Phantom, Solflare or any Solana-compatible wallet. Create a new wallet and secure your recovery phrase.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Visit Our DEX</h3>
+                    <p>Head to GoFundMeme platform where you can easily swap for $PEPEV tokens with just a few clicks.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Swap SOL for $PEPEV</h3>
+                    <p>Connect your wallet, enter the amount of SOL you want to swap, and confirm the transaction to receive $PEPEV!</p>
+                </div>
+            </div>
+            
+            <div class="buy-btn-container">
+                <a href="https://gofundmeme.io/campaigns/3nA1o9VnEVgrD7UL3pCRoYmP9xwX5dDZZzT2Wam3GhZc" class="btn buy-btn">Buy $PEPEV Now!</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <svg width="80" height="80" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#58b02c" stroke="#ffffff" stroke-width="3" />
+                <circle cx="35" cy="40" r="10" fill="white" stroke="#ffffff" stroke-width="2" />
+                <circle cx="65" cy="40" r="10" fill="white" stroke="#ffffff" stroke-width="2" />
+                <circle cx="35" cy="40" r="5" fill="#111" />
+                <circle cx="65" cy="40" r="5" fill="#111" />
+                <path d="M 30 65 Q 50 80 70 65" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#tokenomics">Tokenomics</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="https://gofundmeme.io/campaigns/3nA1o9VnEVgrD7UL3pCRoYmP9xwX5dDZZzT2Wam3GhZc">Buy $PEPEV</a>
+            </div>
+            
+            <div class="social-icons" style="justify-content: center; margin-bottom: 30px;">
+                <a href="https://twitter.com/nueltechie" aria-label="Twitter" style="background-color: var(--pepe-black); border-color: var(--pepe-green);">
+                    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                    </svg>
+                </a>
+                <a href="https://t.me/nuelyoungtek" aria-label="Telegram" style="background-color: var(--pepe-black); border-color: var(--pepe-green);">
+                    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21.5 5.5L2.5 11.5 9.5 13.5 11.5 20.5 21.5 5.5z"></path>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Discord" style="background-color: var(--pepe-black); border-color: var(--pepe-green);">
+                    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 9C18 9 16.5 7.5 12 7.5C7.5 7.5 6 9 6 9C3.6 14.4 3.6 19.8 6 19.8C8.4 19.8 9.9 18.3 12 18.3C14.1 18.3 15.6 19.8 18 19.8C20.4 19.8 20.4 14.4 18 9Z"></path>
+                        <path d="M8.5 14C9.32843 14 10 13.3284 10 12.5C10 11.6716 9.32843 11 8.5 11C7.67157 11 7 11.6716 7 12.5C7 13.3284 7.67157 14 8.5 14Z"></path>
+                        <path d="M15.5 14C16.3284 14 17 13.3284 17 12.5C17 11.6716 16.3284 11 15.5 11C14.6716 11 14 11.6716 14 12.5C14 13.3284 14.6716 14 15.5 14Z"></path>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 Pepeverse. All rights reserved. Not financial advice. DYOR.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            });
+            
+            // Add bubbles dynamically
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                for (let i = 0; i < 3; i++) {
+                    const bubble = document.createElement('div');
+                    bubble.classList.add('bubble');
+                    
+                    const size = Math.random() * 60 + 40;
+                    const left = Math.random() * 90 + 5;
+                    const top = Math.random() * 80 + 10;
+                    const animDuration = Math.random() * 10 + 10;
+                    const animDelay = Math.random() * 5;
+                    
+                    bubble.style.width = `${size}px`;
+                    bubble.style.height = `${size}px`;
+                    bubble.style.left = `${left}%`;
+                    bubble.style.top = `${top}%`;
+                    bubble.style.animationDuration = `${animDuration}s`;
+                    bubble.style.animationDelay = `${animDelay}s`;
+                    
+                    if (!section.classList.contains('hero') && !section.classList.contains('tokenomics') && !section.classList.contains('how-to-buy')) {
+                        section.appendChild(bubble);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```
